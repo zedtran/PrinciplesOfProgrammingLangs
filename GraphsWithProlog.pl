@@ -1,42 +1,42 @@
 /**************************************************************************************
-*	Name:		Donald Tran															  *
-*	AU User ID:	DZT0021																  *	
-*	Course:		COMP3220															  *	
-*	Date:		04/04/17															  *	
-*																                      *	
-* 	Description: a program in Prolog that will tell us how to 						  *	
-*	get from one room of a one-story building, to any other room in 				  *
-*	that building (if it’s possible), by telling us all of the rooms 				  *	
-*	we must go through to get to the destination room. 								  *
-*	In addition to the previous statement, there will be phones 					  *	
-*	ringing in one or more of the rooms. Our prolog program should 					  *
-*	ONLY tell us how to get to those rooms. If we attempt to go to 					  *	
-*	a room that does not have a ringing phone, 										  *
-*	the program should not produce any output. 										  *
-*																					  *
-*	Sources Cited: 																	  *
-*	(1) http://rlgomes.github.io/work/prolog/2012/05/22/19.00-prolog-and-graphs.html  *	
-*	(2) http://www.cpp.edu/~jrfisher/www/prolog_tutorial/2_15.html					  *
-*	(3) http://stackoverflow.com/questions/26856662/how-to-check-if-				  *
-*		the-paths-are-connected-between-rooms										  *	
-*	(4) https://www.doc.gold.ac.uk/~mas02gw/prolog_tutorial/prologpages/lists.html	  *
-*	(5) http://stackoverflow.com/questions/13170401/find-all-possible-				  *
-*		paths-without-revisiting													  *
+*	Name:		Donald Tran															                                    *
+*	AU User ID:	DZT0021																                                  *	
+*	Course:		COMP3220															                                    *	
+*	Date:		04/04/17															                                      *	
+*																                                                      *	
+* Description: a program in Prolog that will tell us how to 						              *	
+*	get from one room of a one-story building, to any other room in 				            *
+*	that building (if it’s possible), by telling us all of the rooms 				            *	
+*	we must go through to get to the destination room. 								                  *
+*	In addition to the previous statement, there will be phones 					              *	
+*	ringing in one or more of the rooms. Our prolog program should 					            *
+*	ONLY tell us how to get to those rooms. If we attempt to go to 					            *	
+*	a room that does not have a ringing phone, 										                      *
+*	the program should not produce any output. 										                      *
+*																					                                            *
+*	Sources Cited: 																	                                    *
+*	(1) http://rlgomes.github.io/work/prolog/2012/05/22/19.00-prolog-and-graphs.html    *	
+*	(2) http://www.cpp.edu/~jrfisher/www/prolog_tutorial/2_15.html					            *
+*	(3) http://stackoverflow.com/questions/26856662/how-to-check-if-				            *
+*		the-paths-are-connected-between-rooms										                          *	
+*	(4) https://www.doc.gold.ac.uk/~mas02gw/prolog_tutorial/prologpages/lists.html	    *
+*	(5) http://stackoverflow.com/questions/13170401/find-all-possible-				          *
+*		paths-without-revisiting													                                *
 **************************************************************************************/
 
 
 /***********************************************************************************
-* QUERY COMMANDS BASED ON RULES SET 1:											   *
-*	(1) findapath(Start_Room_Number, End_Room_Number, My_Path, []).				   *	
-*	(2) findminpath(Start_Room_Number, End_Room_Number, My_Path). 				   *	
-*	(3) findmaxpath(Start_Room_Number, End_Room_Number, My_Path).				   *
+* QUERY COMMANDS BASED ON RULES SET 1:											                       *
+*	(1) findapath(Start_Room_Number, End_Room_Number, My_Path, []).				           *	
+*	(2) findminpath(Start_Room_Number, End_Room_Number, My_Path). 				           *	
+*	(3) findmaxpath(Start_Room_Number, End_Room_Number, My_Path).				             *
 ***********************************************************************************/ 
 
 /*************************************************************************************
-* QUERY COMMANDS BASED ON RULES SET 2:												 *
-*	(1) findapath(Start_Room_Number, End_Room_Number, Number_of_Moves, My_Path, []). *
-*	(2) findminpath(Start_Room_Number, End_Room_Number, Number_of_Moves, My_Path).	 * 
-*	(3) findmaxpath(Start_Room_Number, End_Room_Number, Number_of_Moves, My_Path).	 *
+* QUERY COMMANDS BASED ON RULES SET 2:												                       *
+*	(1) findapath(Start_Room_Number, End_Room_Number, Number_of_Moves, My_Path, []).   *
+*	(2) findminpath(Start_Room_Number, End_Room_Number, Number_of_Moves, My_Path).	   * 
+*	(3) findmaxpath(Start_Room_Number, End_Room_Number, Number_of_Moves, My_Path).	   *
 *************************************************************************************/ 
 
 
@@ -134,7 +134,7 @@ neighbor(16, 15, 1).
 
 /**************************************************************************
  *	RULES: SET 2 (Includes Number of Moves or Weight (W) between nodes    *
- *		  Used as a counter).											  *
+ *		  Used as a counter).											                          *
  *************************************************************************/
 
 findapath(X, Y, W, [X,Y], _) :- neighbor(X, Y, W), ringing(Y).			  
